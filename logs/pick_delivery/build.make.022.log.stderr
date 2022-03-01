@@ -1,0 +1,15 @@
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:[m[K In function ‘[01m[Kvoid callClient(int)[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:185:3:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kn[m[K’
+   [01;31m[Kn[m[K.user = rob[i].sender->hash;
+   [01;31m[K^[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:190:15:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kstatus[m[K’ in ‘[01m[Krob[m[K’, which is of non-class type ‘[01m[Krobot [2][m[K’
+  else if (rob.[01;31m[Kstatus[m[K == 2)
+               [01;31m[K^~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:[m[K In function ‘[01m[Kvoid check_robot(const ConstPtr&, int)[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:297:16:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kstatus[m[K’ in ‘[01m[Krob[m[K’, which is of non-class type ‘[01m[Krobot [2][m[K’
+   else if (rob.[01;31m[Kstatus[m[K == 2)
+                [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/server1.dir/src/server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/server1.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

@@ -1,0 +1,11 @@
+[31m[1mCMake Error[0m at /home/me/pick-delivery_mr/src/pick_delivery/CMakeLists.txt:139 (add_executable):
+  Cannot find source file:
+
+    src/client.cpp
+
+  Tried extensions .c .C .c++ .cc .cpp .cxx .m .M .mm .h .hh .h++ .hm .hpp
+  .hxx .in .txx
+
+
+CMake Error: CMake can not determine linker language for target: client
+CMake Error: Cannot determine link language for target "client".

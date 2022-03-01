@@ -1,0 +1,17 @@
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:18:20:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Krobot::robot()[m[K’
+ robot         rob[2[01;31m[K][m[K;
+                    [01;31m[K^[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:5:0[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:12:2:[m[K [01;36m[Knote: [m[Kcandidate: robot::robot(int, int)
+  [01;36m[Krobot[m[K(int s, int f)
+  [01;36m[K^~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:12:2:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:5:7:[m[K [01;36m[Knote: [m[Kcandidate: constexpr robot::robot(const robot&)
+ class [01;36m[Krobot[m[K
+       [01;36m[K^~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:5:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:5:7:[m[K [01;36m[Knote: [m[Kcandidate: constexpr robot::robot(robot&&)
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:5:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+make[2]: *** [CMakeFiles/server1.dir/src/server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/server1.dir/all] Error 2
+make: *** [all] Error 2

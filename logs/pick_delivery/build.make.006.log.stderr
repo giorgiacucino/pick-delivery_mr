@@ -1,0 +1,43 @@
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:5:0[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:14:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kaula[m[K’ does not name a type; did you mean ‘[01m[Kauto[m[K’?
+   [01;31m[Kaula[m[K* auladest;
+   [01;31m[K^~~~[m[K
+   [32m[Kauto[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:[m[K In constructor ‘[01m[Krobot::robot()[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:24:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kauladest[m[K’ was not declared in this scope
+   [01;31m[Kauladest[m[K = NULL;
+   [01;31m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:24:3:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kquad_t[m[K’
+   [01;36m[Kauladest[m[K = NULL;
+   [01;36m[K^~~~~~~~[m[K
+   [32m[Kquad_t[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:[m[K In function ‘[01m[Kvoid get_infos(robot, std::__cxx11::string, std::__cxx11::string, std::__cxx11::string)[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:127:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass robot[m[K’ has no member named ‘[01m[Kauladest[m[K’
+    r.[01;31m[Kauladest[m[K = &a;
+      [01;31m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:129:6:[m[K [01;31m[Kerror: [m[K‘[01m[Kbroadcast[m[K’ was not declared in this scope
+  if ([01;31m[Kbroadcast[m[K == 1)
+      [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:130:21:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass robot[m[K’ has no member named ‘[01m[Kauladest[m[K’
+   log_all_users(*(r.[01;31m[Kauladest[m[K), 0);
+                     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:[m[K In function ‘[01m[Kbool handle_invio(pick_delivery::invio::Request&, pick_delivery::invio::Response&)[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:194:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass robot[m[K’ has no member named ‘[01m[Kauladest[m[K’
+    cout << "aula: " << (*(rob[i].[01;31m[Kauladest[m[K)).name << endl;
+                                  [01;31m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:195:8:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kstatus[m[K’ in ‘[01m[Krob[m[K’, which is of non-class type ‘[01m[Krobot [2][m[K’
+    rob.[01;31m[Kstatus[m[K = 1;
+        [01;31m[K^~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:197:4:[m[K [01;31m[Kerror: [m[K‘[01m[Kset_goal[m[K’ was not declared in this scope
+    [01;31m[Kset_goal[m[K(i);
+    [01;31m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:197:4:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kgoal[m[K’
+    [01;36m[Kset_goal[m[K(i);
+    [01;36m[K^~~~~~~~[m[K
+    [32m[Kgoal[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:204:27:[m[K [01;31m[Kerror: [m[K‘[01m[Kclass robot[m[K’ has no member named ‘[01m[Kauladest[m[K’
+    n.auladest = (*(rob[i].[01;31m[Kauladest[m[K)).name;
+                           [01;31m[K^~~~~~~~[m[K
+make[2]: *** [CMakeFiles/server1.dir/src/server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/server1.dir/all] Error 2
+make: *** [all] Error 2

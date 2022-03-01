@@ -1,0 +1,1 @@
+/home/me/pick-delivery_mr/devel/.private/pick_delivery/share/roseus/ros/pick_delivery/msg/c_to_s.l

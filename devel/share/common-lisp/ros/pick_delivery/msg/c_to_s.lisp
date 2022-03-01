@@ -1,0 +1,1 @@
+/home/me/pick-delivery_mr/devel/.private/pick_delivery/share/common-lisp/ros/pick_delivery/msg/c_to_s.lisp

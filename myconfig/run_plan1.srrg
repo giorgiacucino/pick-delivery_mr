@@ -1,0 +1,5 @@
+open plan1.conf
+exec source open
+exec sink open
+exec requestor requestMap
+run runner

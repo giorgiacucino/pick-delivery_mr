@@ -1,0 +1,6 @@
+devel_space: /home/me/pick-delivery_mr/devel
+install: false
+install_space: /home/me/pick-delivery_mr/install
+profile: default
+source_space: /home/me/pick-delivery_mr/src
+workspace: /home/me/pick-delivery_mr

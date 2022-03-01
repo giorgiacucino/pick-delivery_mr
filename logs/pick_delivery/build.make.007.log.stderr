@@ -1,0 +1,35 @@
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:3:0[m[K,
+                 from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:5[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/users.h:5:7:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kclass user[m[K’
+ class [01;31m[Kuser[m[K
+       [01;31m[K^~~~[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:4:0[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/users.h:5:7:[m[K [01;36m[Knote: [m[Kprevious definition of ‘[01m[Kclass user[m[K’
+ class [01;36m[Kuser[m[K
+       [01;36m[K^~~~[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:6:0[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/aula.h:10:7:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kclass aula[m[K’
+ class [01;31m[Kaula[m[K
+       [01;31m[K^~~~[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:4:0[m[K,
+                 from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:5[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/aula.h:10:7:[m[K [01;36m[Knote: [m[Kprevious definition of ‘[01m[Kclass aula[m[K’
+ class [01;36m[Kaula[m[K
+       [01;36m[K^~~~[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:6:0[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/aula.h:[m[K In function ‘[01m[Kstd::__cxx11::list<aula> get_aule()[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/aula.h:31:12:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kstd::__cxx11::list<aula> get_aule()[m[K’
+ list<aula> [01;31m[Kget_aule[m[K(void)
+            [01;31m[K^~~~~~~~[m[K
+In file included from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/robot.h:4:0[m[K,
+                 from [01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:5[m[K:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/aula.h:31:12:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::__cxx11::list<aula> get_aule()[m[K’ previously defined here
+ list<aula> [01;36m[Kget_aule[m[K(void)
+            [01;36m[K^~~~~~~~[m[K
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:[m[K In function ‘[01m[Kbool handle_invio(pick_delivery::invio::Request&, pick_delivery::invio::Response&)[m[K’:
+[01m[K/home/me/pick-delivery_mr/src/pick_delivery/src/server.cpp:222:8:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kstatus[m[K’ in ‘[01m[Krob[m[K’, which is of non-class type ‘[01m[Krobot [2][m[K’
+    rob.[01;31m[Kstatus[m[K = 1;
+        [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/server1.dir/src/server.cpp.o] Error 1
+make[1]: *** [CMakeFiles/server1.dir/all] Error 2
+make: *** [all] Error 2
