@@ -2,24 +2,21 @@
 [  0%] Built target _pick_delivery_generate_messages_check_deps_invio
 [  0%] Built target _pick_delivery_generate_messages_check_deps_c_to_s
 [  0%] Built target std_msgs_generate_messages_cpp
-[  0%] Built target _pick_delivery_generate_messages_check_deps_s_to_c
 [  0%] Built target _pick_delivery_generate_messages_check_deps_notifica
+[  0%] Built target _pick_delivery_generate_messages_check_deps_s_to_c
+[  0%] Built target std_msgs_generate_messages_py
 [  0%] Built target std_msgs_generate_messages_nodejs
 [  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target std_msgs_generate_messages_eus
 [ 15%] Built target pick_delivery_generate_messages_cpp
-[ 15%] Built target std_msgs_generate_messages_eus
 [ 37%] Built target pick_delivery_generate_messages_py
-[ 53%] Built target pick_delivery_generate_messages_lisp
-[ 71%] Built target pick_delivery_generate_messages_eus
-[ 87%] Built target pick_delivery_generate_messages_nodejs
+[ 53%] Built target pick_delivery_generate_messages_nodejs
+[ 68%] Built target pick_delivery_generate_messages_lisp
+[ 87%] Built target pick_delivery_generate_messages_eus
 [ 87%] Built target pick_delivery_gencpp
 [ 87%] Built target pick_delivery_generate_messages
 [35m[1mScanning dependencies of target server1[0m
-[35m[1mScanning dependencies of target client[0m
 [ 90%] [32mBuilding CXX object CMakeFiles/server1.dir/src/server.cpp.o[0m
-[ 93%] [32mBuilding CXX object CMakeFiles/client.dir/src/client.cpp.o[0m
-[ 96%] [32m[1mLinking CXX executable /home/me/pick-delivery_mr/devel/.private/pick_delivery/lib/pick_delivery/client[0m
 [ 96%] Built target client
 [100%] [32m[1mLinking CXX executable /home/me/pick-delivery_mr/devel/.private/pick_delivery/lib/pick_delivery/server1[0m
 [100%] Built target server1

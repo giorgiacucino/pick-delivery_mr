@@ -319,8 +319,6 @@ int	main(int argc, char **argv)
     }
     
 	num_robot = atoi(argv[1]);
-    rob[0] = robot();
-    rob[1] = robot();
     string mvbase = "/move_base_simple/goal";
     string plstat = "/planner_status";
 	
@@ -332,6 +330,7 @@ int	main(int argc, char **argv)
     
 	for (int i = 0; i < num_robot; i++)
     {
+        rob[i] = robot();
         string robot = "/robot_" + to_string(i);
 	    pub_robot[i] = node.advertise<geometry_msgs::PoseStamped>(robot + mvbase, 1000);
 	    sub_robot[i] = node.subscribe<srrg2_core_ros::PlannerStatusMessage>(robot + plstat, 1000, boost::bind(check_robot, _1, i) );

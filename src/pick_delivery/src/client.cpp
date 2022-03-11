@@ -71,6 +71,7 @@ void	handle_notifica(const pick_delivery::s_to_c::ConstPtr& m)
 		res.resp = 0;
 		res.idrob = m->idrob;
 		need_to_wait = 0;
+        is_receiver = 0;
 		cout << "[Robot_" << m->idrob << "] " << m->msg << endl << flush;
 		pub_server.publish(res);
 		cout << "[INFO] Sto rispondendo al server con " << res.resp << endl;
@@ -150,123 +151,132 @@ int main(int argc, char **argv)
 				while (need_to_wait == 1)
 					ros::spinOnce();
 			}
-			if (scelta == 1)
+			else
 			{
-				cout << endl;
-				cout << "Le aule a cui puoi inviare un pacco sono:" << endl;
-				mostra_aule(aulelist);
-				cout << endl;
-				cout << "A quale aula vuoi inviarlo?" << endl;
-				cin >> aulainvio;
-				cout << "Vuoi inviarlo a qualcuno in particolare nell'"<< aulainvio << "? (0 per non specificare)" << endl;
-				cin >> receiver;
-				msg2send.request.sender = name;
-				msg2send.request.aula = aulainvio;
-				msg2send.request.receiver = receiver;
-				int ok;
-
-				ok = 0;
-				while (!ok)
-				{
-					if (SCsend.call(msg2send))
-					{
-						if (msg2send.response.serv_resp == 1)
-						{
-							need_to_wait = 1;
-							picking = 1;
-							ok = 1;
-							cout << "Il pacco può essere inviato, aspetta che il robot lo venga a ritirare" << endl;
-						}
-						else if (msg2send.response.serv_resp == 2)
-						{
-							cout << "Il servizio è momentaneamente occupato, riprova più tardi" << endl;
-							ok = 1;
-						}
-						else if (msg2send.response.serv_resp == 3)
-							cout << "L'aula che hai inserito non è valida, riprova" << endl;
-						else if (msg2send.response.serv_resp == 4)
-							cout << "L'utente a cui vuoi inviare il pacco non esiste o non si trova nell'" << aulainvio << ", riprova"<< endl;
-						if (ok == 0)
-						{
-							cout << "Vuoi provare a rinviarlo?" << endl;
-							cin >> in;
-							if (in == "n")
-								break ;
-							cout << "A quale aula vuoi inviarlo?" << endl;
-							cin >> aulainvio;
-							cout << "Vuoi inviarlo a qualcuno in particolare nell'"<< aulainvio << "? (0 per non specificare)" << endl;
-							cin >> receiver;
-							msg2send.request.sender = name;
-							msg2send.request.aula = aulainvio;
-							msg2send.request.receiver = receiver;
-						}
-					}
-					else 
-						ROS_INFO("Failed to call service");
-				}
-			}
-			else if (scelta == 2)
-			{
-				int	ok;
-			
-				ok = 0;
-				while (!ok)
+				if (scelta == 1)
 				{
 					cout << endl;
-					cout << "Attualmente sei nell'"<< aulaclient << ". Le aule disponibili sono" << endl;
+					cout << "Le aule a cui puoi inviare un pacco sono:" << endl;
 					mostra_aule(aulelist);
-					cout << "Dove vuoi andare? ";
-					cin >> new_aula;
+					cout << endl;
+					cout << "A quale aula vuoi inviarlo?" << endl;
+					cin >> aulainvio;
+					cout << "Vuoi inviarlo a qualcuno in particolare nell'"<< aulainvio << "? (0 per non specificare)" << endl;
+					cin >> receiver;
+					msg2send.request.sender = name;
+					msg2send.request.aula = aulainvio;
+					msg2send.request.receiver = receiver;
+					int ok;
+
+					ok = 0;
+					while (!ok)
+					{
+						if (SCsend.call(msg2send))
+						{
+							if (msg2send.response.serv_resp == 1)
+							{
+								need_to_wait = 1;
+								picking = 1;
+								ok = 1;
+								cout << "Il pacco può essere inviato, aspetta che il robot lo venga a ritirare" << endl;
+							}
+							else if (msg2send.response.serv_resp == 2)
+							{
+								cout << "Il servizio è momentaneamente occupato, riprova più tardi" << endl;
+								ok = 1;
+							}
+							else if (msg2send.response.serv_resp == 3)
+								cout << "L'aula che hai inserito non è valida, riprova" << endl;
+							else if (msg2send.response.serv_resp == 4)
+								cout << "L'utente a cui vuoi inviare il pacco non esiste o non si trova nell'" << aulainvio << ", riprova"<< endl;
+							if (ok == 0)
+							{
+								cout << "Vuoi provare a rinviarlo?" << endl;
+								cin >> in;
+								if (in == "n")
+									break ;
+								cout << "A quale aula vuoi inviarlo?" << endl;
+								cin >> aulainvio;
+								cout << "Vuoi inviarlo a qualcuno in particolare nell'"<< aulainvio << "? (0 per non specificare)" << endl;
+								cin >> receiver;
+								msg2send.request.sender = name;
+								msg2send.request.aula = aulainvio;
+								msg2send.request.receiver = receiver;
+							}
+						}
+						else 
+							ROS_INFO("Failed to call service");
+					}
+				}
+				else if (scelta == 2)
+				{
+					int	ok;
+				
+					ok = 0;
+					while (!ok)
+					{
+						cout << endl;
+						cout << "Attualmente sei nell'"<< aulaclient << ". Le aule disponibili sono" << endl;
+						mostra_aule(aulelist);
+						cout << "Dove vuoi andare? ";
+						cin >> new_aula;
+						msglog.request.name = name;
+						msglog.request.aula = new_aula;
+						msglog.request.type_service = 2;
+						if (SClog.call(msglog))
+						{
+							cout << "Ti sei spostat* nell'"<< msglog.response.serv_resp <<"." << endl;
+							aulaclient = new_aula;
+							ok = 1;
+						}
+						else
+							cout << "[INFO] "<< msglog.response.serv_resp <<"." << endl;
+							if (msglog.response.serv_resp == "Sta arrivando un pacco per te, non puoi cambiare aula")
+							{
+								need_to_wait = 1;
+								break ;
+							}
+							cout << "Vuoi ancora cambiare aula? (y/n)";
+							cin >> in;
+							if (in == "y")
+								break ;
+					}
+				}
+				else if (scelta == 3)
+				{
+					cout << "Controllo se sta arrivando un robot..." << endl;
+					ros::spinOnce();
+					if (is_receiver == 1)
+					{
+						while (need_to_wait == 1)
+							ros::spinOnce();
+					}
+					cout << "Sembra che al momento non ci sia nessun pacco per te al momento" << endl;
+				}
+				else if (scelta == 4)
+				{
 					msglog.request.name = name;
-					msglog.request.aula = new_aula;
-					msglog.request.type_service = 2;
+					msglog.request.type_service = 0;
 					if (SClog.call(msglog))
 					{
-						cout << "Ti sei spostat* nell'"<< msglog.response.serv_resp <<"." << endl;
-						aulaclient = new_aula;
-						ok = 1;
+						cout << endl;
+						cout << "Ciao "<< name <<"." << msglog.response.serv_resp << endl;
+						return (0);
 					}
 					else
-						cout << "[INFO] "<< msglog.response.serv_resp <<"." << endl;
-						if (msglog.response.serv_resp == "Sta arrivando un pacco per te, non puoi cambiare aula")
-						{
-							need_to_wait = 1;
-							break ;
-						}
-						cout << "Vuoi ancora cambiare aula? (y/n)";
+					{
+						cout << "Aspetta! Sembra che il robot stia venendo da te" << endl;
+						cout << "Vuoi davvero uscire? (y/n)" << endl;
 						cin >> in;
 						if (in == "y")
-							break ;
-				}
-			}
-			else if (scelta == 3)
-			{
-				need_to_wait = 1;
-				cout << "Controllo se è arrivato il robot..." << endl;
-			}
-			else if (scelta == 4)
-			{
-				msglog.request.name = name;
-				msglog.request.type_service = 0;
-				if (SClog.call(msglog))
-				{
-					cout << endl;
-					cout << "Ciao "<< name <<"." << msglog.response.serv_resp << endl;
-					return (0);
+							return (0);
+					}
 				}
 				else
-				{
-					cout << "Aspetta! Sembra che il robot stia venendo da te" << endl;
-					cout << "Vuoi davvero uscire? (y/n)" << endl;
-					cin >> in;
-					if (in == "y")
-						return (0);
-				}
-			}
-			else
 			{
 				cout << endl;
 				cout << "Scelta non valida! Controlla il numero che hai inserito" << endl;
+			}
 			}
 		}
 		ros::spinOnce();
